@@ -5,7 +5,7 @@ get_quantile_in(data, t, linear=True, method='mean')
 
 Parameters:
 
-    data: 给定的数值列表，长度大于1，其中不含空值（None）
+    data: 给定的数值列表，长度大于1，其中不含空值（None）。
 
     t: 目标数，是data序列中的值。
 
@@ -20,7 +20,7 @@ Returns
 
 def get_quantile_in(data, t, linear=True, method='mean'):
 
-    if t not in data:
+    if t not in data:  # pandas的Series类型不能使用in判断
         raise ValueError("t not in data")
 
     data = [i for i in data if i]  # 去掉空值，类似pandas的dropna()
